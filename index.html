@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="de" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deutsch B2.2 Kontext Wortschatz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        // Prevent FOUC (Flash of Unstyled Content) for Dark Mode
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                    },
+                    keyframes: {
+                        'fade-in-up': {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'fade-in': {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fade-in-up 0.4s ease-out forwards',
+                        'fade-in': 'fade-in 0.3s ease-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans antialiased flex flex-col h-screen overflow-hidden transition-colors duration-300">
+
+    <header class="w-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-700/60 h-16 flex items-center px-4 sm:px-6 flex-shrink-0 z-20 sticky top-0 transition-colors duration-300">
+        <div class="bg-sky-100 dark:bg-sky-900/40 p-2 rounded-xl flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-600 dark:text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+        </div>
+        <h1 class="ml-3 text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100 tracking-tight truncate">Deutsch B2 <span class="font-medium text-slate-400 dark:text-slate-500 mx-1">|</span> Kontext</h1>
+        
+        <div class="ml-auto flex items-center gap-2 sm:gap-4">
+            <div class="hidden sm:flex items-center space-x-2 text-sm font-medium text-slate-500 dark:text-slate-400 bg-slate-100/50 dark:bg-slate-700/50 px-3 py-1.5 rounded-full border border-slate-200/50 dark:border-slate-600/50">
+                <span>Kapitel 7 - 12</span>
+            </div>
+            
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="relative w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-500 overflow-hidden group">
+                <svg id="theme-toggle-dark-icon" class="absolute w-5 h-5 transition-all duration-500 transform group-hover:rotate-12" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <svg id="theme-toggle-light-icon" class="absolute w-5 h-5 transition-all duration-500 transform translate-y-10 opacity-0 group-hover:rotate-12" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar Navigation (Desktop) -->
+        <aside class="hidden md:flex flex-col w-72 bg-white dark:bg-slate-800/80 backdrop-blur-sm border-r border-slate-200/60 dark:border-slate-700/60 p-4 space-y-2 overflow-y-auto flex-shrink-0 z-10 transition-colors duration-300">
+            <div class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2 ml-2 mt-2">Kapitel Auswahl</div>
+            <nav id="sidebar-nav" class="flex flex-col space-y-1">
+                <!-- Navigation buttons injected via JS -->
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-y-auto p-4 sm:p-8 bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
+            
+            <div class="mb-6 sm:mb-8 flex flex-col md:flex-row justify-between items-start md:items-end max-w-5xl mx-auto gap-4 md:gap-0">
+                <div>
+                    <h2 id="chapter-title" class="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight transition-colors duration-300">Kapitel 7: Wieder was gelernt!</h2>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 font-medium flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        45 wichtige Vokabeln für dieses Kapitel
+                    </p>
+                </div>
+                <!-- Mobile Chapter Selector -->
+                <select id="mobile-nav" class="w-full md:w-auto md:hidden bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm text-slate-700 dark:text-slate-300 text-base sm:text-sm rounded-xl focus:ring-sky-500 focus:border-sky-500 block p-3 sm:p-2.5 outline-none transition-colors duration-300">
+                    <!-- Options injected by JS -->
+                </select>
+            </div>
+
+            <!-- Vocabulary Table -->
+            <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/60 dark:border-slate-700/60 shadow-sm overflow-hidden max-w-5xl mx-auto transition-colors duration-300">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse min-w-[300px]">
+                        <thead>
+                            <tr class="bg-slate-50/50 dark:bg-slate-800/80 transition-colors duration-300">
+                                <th class="py-4 px-4 sm:px-6 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider border-b border-slate-200/80 dark:border-slate-700/80 w-2/5 sm:w-1/3">Deutsches Wort</th>
+                                <th class="py-4 px-4 sm:px-6 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider border-b border-slate-200/80 dark:border-slate-700/80">Englische Übersetzung</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vocab-table-body">
+                            <!-- Injected via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="max-w-5xl mx-auto mt-8 text-center text-sm text-slate-400 dark:text-slate-500">
+                <p>Klicke auf die <span class="text-teal-600 dark:text-teal-400 font-semibold border-b border-dashed border-teal-300 dark:border-teal-700">Verben</span>, um die Konjugationen zu sehen.</p>
+            </div>
+            <div class="h-12"></div> <!-- Bottom spacing -->
+        </main>
+    </div>
+
+    <div id="verb-modal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300 ease-out">
+        <div class="absolute inset-0 bg-slate-900/20 dark:bg-slate-900/60 backdrop-blur-sm transition-colors duration-300" id="modal-backdrop"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4 sm:p-6 pointer-events-none">
+            <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col pointer-events-auto transform scale-95 translate-y-4 transition-all duration-300 ease-out border border-slate-100 dark:border-slate-700" id="modal-content">
+                
+                <!-- Modal Header -->
+                <div class="px-4 sm:px-6 py-4 sm:py-5 border-b border-slate-100 dark:border-slate-700 flex justify-between items-start bg-teal-50/50 dark:bg-teal-900/20 transition-colors duration-300">
+                    <div>
+                        <div class="flex items-center gap-2 sm:gap-3 mb-1 sm:mb-1.5">
+                            <span class="bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider py-1 px-2.5 rounded-md">Verb</span>
+                            <h3 id="modal-verb-text" class="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100 tracking-tight"></h3>
+                        </div>
+                        <p id="modal-verb-translation" class="text-sm sm:text-base text-slate-500 dark:text-slate-400 font-medium ml-1"></p>
+                    </div>
+                    <button id="modal-close" class="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 p-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-slate-200 dark:focus:ring-slate-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Modal Body -->
+                <div class="p-4 sm:p-6 overflow-y-auto bg-slate-50 dark:bg-slate-900/50 transition-colors duration-300">
+                    
+                    <!-- Perfekt & Präteritum blocks -->
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 sm:mb-6">
+                        <div class="bg-white dark:bg-slate-800 p-3 rounded-xl flex-1 border border-slate-100 dark:border-slate-700 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.05)] transition-colors duration-300">
+                            <div class="text-[10px] text-teal-500/80 dark:text-teal-400/80 uppercase font-bold tracking-widest mb-1">Präteritum</div>
+                            <div id="modal-praeteritum" class="font-semibold text-slate-700 dark:text-slate-200 text-sm sm:text-base"></div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-3 rounded-xl flex-1 border border-slate-100 dark:border-slate-700 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.05)] transition-colors duration-300">
+                            <div class="text-[10px] text-teal-500/80 dark:text-teal-400/80 uppercase font-bold tracking-widest mb-1">Perfekt</div>
+                            <div id="modal-perfekt" class="font-semibold text-slate-700 dark:text-slate-200 text-sm sm:text-base"></div>
+                        </div>
+                    </div>
+
+                    <!-- Conjugation Table -->
+                    <div class="bg-slate-50/50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700/50 overflow-hidden transition-colors duration-300">
+                        <table class="w-full text-left border-collapse">
+                            <tbody id="modal-conjugation-body">
+                                <!-- Injected via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- DATA STRUCTURES --- //
+
+        const vocabData = [
+            {
+                id: 'ch7',
+                title: 'Kapitel 7: Wieder was gelernt!',
+                colorClass: 'text-sky-600 dark:text-sky-400',
+                navIcon: '<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>',
+                words: [
+                    { de: 'behalten', en: 'to keep / retain', isVerb: true, icon: '🧠' },
+                    { de: 'überfordern', en: 'to overwhelm', isVerb: true, icon: '🤯' },
+                    { de: 'feststellen', en: 'to establish / determine', isVerb: true, icon: '🔍' },
+                    { de: 'die Rücksicht', en: 'consideration / regard', isVerb: false, icon: '🤝' },
+                    { de: 'die Hilfe', en: 'help / aid', isVerb: false, icon: '🆘' },
+                    { de: 'der Austausch', en: 'exchange', isVerb: false, icon: '🗣️' },
+                    { de: 'das Interesse', en: 'interest', isVerb: false, icon: '👀' },
+                    { de: 'die Kosten (Pl.)', en: 'costs', isVerb: false, icon: '💰' },
+                    { de: 'der Druck', en: 'pressure', isVerb: false, icon: '🗜️' },
+                    { de: 'der Entschluss', en: 'decision / resolution', isVerb: false, icon: '⚖️' },
+                    { de: 'der Fachbereich', en: 'department / faculty', isVerb: false, icon: '🏛️' },
+                    { de: 'die Zulassung', en: 'admission', isVerb: false, icon: '✅' },
+                    { de: 'hinweisen', en: 'to point out / indicate', isVerb: true, icon: '☝️' },
+                    { de: 'nachweisen', en: 'to prove / verify', isVerb: true, icon: '📄' },
+                    { de: 'das Anliegen', en: 'concern / request', isVerb: false, icon: '💬' },
+                    { de: 'absolvieren', en: 'to complete / graduate', isVerb: true, icon: '🎓' },
+                    { de: 'anerkennen', en: 'to recognize / acknowledge', isVerb: true, icon: '✅' },
+                    { de: 'ziemlich', en: 'quite / fairly', isVerb: false, icon: '📏' },
+                    { de: 'im Voraus', en: 'in advance', isVerb: false, icon: '⏳' },
+                    { de: 'behilflich', en: 'helpful', isVerb: false, icon: '🤝' },
+                    { de: 'die Erklärung', en: 'explanation', isVerb: false, icon: '🗣️' },
+                    { de: 'das Mittelalter', en: 'Middle Ages', isVerb: false, icon: '🏰' },
+                    { de: 'die Neuzeit', en: 'modern era', isVerb: false, icon: '⏱️' },
+                    { de: 'adlig', en: 'noble / aristocratic', isVerb: false, icon: '👑' },
+                    { de: 'die Fachhochschule', en: 'university of applied sciences', isVerb: false, icon: '🏫' },
+                    { de: 'die Kunsthochschule', en: 'art academy', isVerb: false, icon: '🎨' },
+                    { de: 'der Bruch', en: 'break / fracture', isVerb: false, icon: '💔' },
+                    { de: 'zeitgemäß', en: 'contemporary / up-to-date', isVerb: false, icon: '⏱️' },
+                    { de: 'die Schicht', en: 'social class / layer', isVerb: false, icon: '🍰' },
+                    { de: 'die Vereinheitlichung', en: 'standardization', isVerb: false, icon: '📏' },
+                    { de: 'der Studiengang', en: 'degree program', isVerb: false, icon: '📚' },
+                    { de: 'die Vielfalt', en: 'diversity', isVerb: false, icon: '🌈' },
+                    { de: 'die Vorlesung', en: 'lecture', isVerb: false, icon: '👨‍🏫' },
+                    { de: 'die Reform', en: 'reform', isVerb: false, icon: '🔄' },
+                    { de: 'prägen', en: 'to shape / coin', isVerb: true, icon: '🪙' },
+                    { de: 'ausschließlich', en: 'exclusively', isVerb: false, icon: '💯' },
+                    { de: 'der Akademiker', en: 'academic', isVerb: false, icon: '🧑‍🎓' },
+                    { de: 'die Herkunft', en: 'origin / background', isVerb: false, icon: '🌍' },
+                    { de: 'mittlerweile', en: 'meanwhile / by now', isVerb: false, icon: '⏳' },
+                    { de: 'das Milieu', en: 'social environment', isVerb: false, icon: '🏘️' },
+                    { de: 'bildungsfern', en: 'educationally disadvantaged', isVerb: false, icon: '📉' },
+                    { de: 'benachteiligt', en: 'disadvantaged', isVerb: false, icon: '💔' },
+                    { de: 'erschweren', en: 'to make more difficult', isVerb: true, icon: '🚧' },
+                    { de: 'der Berufseinstieg', en: 'entry into working life', isVerb: false, icon: '💼' },
+                    { de: 'erleichtern', en: 'to make easier', isVerb: true, icon: '🎈' }
+                ]
+            },
+            {
+                id: 'ch8',
+                title: 'Kapitel 8: Einfach menschlich',
+                colorClass: 'text-indigo-600 dark:text-indigo-400',
+                navIcon: '<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>',
+                words: [
+                    { de: 'die Personalabteilung', en: 'human resources department', isVerb: false, icon: '🧑‍💼' },
+                    { de: 'die Weiterbildung', en: 'further education', isVerb: false, icon: '📈' },
+                    { de: 'erfassen', en: 'to capture / record', isVerb: true, icon: '📝' },
+                    { de: 'verfolgen', en: 'to pursue', isVerb: true, icon: '🏃‍♂️' },
+                    { de: 'vielfältig', en: 'diverse / varied', isVerb: false, icon: '🔀' },
+                    { de: 'die Weltanschauung', en: 'worldview / ideology', isVerb: false, icon: '🌍' },
+                    { de: 'unterschiedlich', en: 'different', isVerb: false, icon: '🔀' },
+                    { de: 'der Umgang', en: 'handling / interaction', isVerb: false, icon: '🤝' },
+                    { de: 'beitragen', en: 'to contribute', isVerb: true, icon: '➕' },
+                    { de: 'bieten', en: 'to offer / provide', isVerb: true, icon: '🤲' },
+                    { de: 'die Chancengleichheit', en: 'equal opportunity', isVerb: false, icon: '⚖️' },
+                    { de: 'überraschend', en: 'surprising', isVerb: false, icon: '😲' },
+                    { de: 'profitieren', en: 'to profit / benefit', isVerb: true, icon: '📈' },
+                    { de: 'unterstützen', en: 'to support', isVerb: true, icon: '🛡️' },
+                    { de: 'unterbinden', en: 'to prevent / stop', isVerb: true, icon: '🛑' },
+                    { de: 'anstreben', en: 'to strive for', isVerb: true, icon: '🎯' },
+                    { de: 'gewinnbringend', en: 'profitable', isVerb: false, icon: '💶' },
+                    { de: 'umfassen', en: 'to include / encompass', isVerb: true, icon: '🫂' },
+                    { de: 'die Gegenleistung', en: 'return service', isVerb: false, icon: '🔄' },
+                    { de: 'der Durchschnitt', en: 'average', isVerb: false, icon: '📊' },
+                    { de: 'auseinanderbrechen', en: 'to break apart', isVerb: true, icon: '💔' },
+                    { de: 'ersetzen', en: 'to replace', isVerb: true, icon: '🔁' },
+                    { de: 'die Verantwortung', en: 'responsibility', isVerb: false, icon: '🗝️' },
+                    { de: 'die Autorität', en: 'authority', isVerb: false, icon: '🏛️' },
+                    { de: 'die Distanz', en: 'distance', isVerb: false, icon: '📏' },
+                    { de: 'herrschen', en: 'to rule / prevail', isVerb: true, icon: '👑' },
+                    { de: 'befreundet', en: 'befriended', isVerb: false, icon: '🤝' },
+                    { de: 'der Freundeskreis', en: 'circle of friends', isVerb: false, icon: '🧑‍🤝‍🧑' },
+                    { de: 'befremdlich', en: 'strange / alienating', isVerb: false, icon: '👽' },
+                    { de: 'die Zuneigung', en: 'affection', isVerb: false, icon: '❤️' },
+                    { de: 'die Wertschätzung', en: 'appreciation', isVerb: false, icon: '👏' },
+                    { de: 'bestätigen', en: 'to confirm', isVerb: true, icon: '✅' },
+                    { de: 'stärken', en: 'to strengthen', isVerb: true, icon: '💪' },
+                    { de: 'das Selbstwertgefühl', en: 'self-esteem', isVerb: false, icon: '🪞' },
+                    { de: 'das Verhältnis', en: 'relationship', isVerb: false, icon: '🔗' },
+                    { de: 'abhängen', en: 'to depend', isVerb: true, icon: '🪢' },
+                    { de: 'der Stellenwert', en: 'significance / value', isVerb: false, icon: '🌟' },
+                    { de: 'nachvollziehen', en: 'to comprehend', isVerb: true, icon: '💡' },
+                    { de: 'bereichern', en: 'to enrich', isVerb: true, icon: '💎' },
+                    { de: 'erwarten', en: 'to expect', isVerb: true, icon: '⏳' },
+                    { de: 'die Aufstiegsmöglichkeit', en: 'promotion opportunity', isVerb: false, icon: '🪜' },
+                    { de: 'täuschen', en: 'to deceive / fool', isVerb: true, icon: '🎭' },
+                    { de: 'die Idylle', en: 'idyll', isVerb: false, icon: '🏞️' },
+                    { de: 'unterschätzen', en: 'to underestimate', isVerb: true, icon: '📉' },
+                    { de: 'leidenschaftlich', en: 'passionate', isVerb: false, icon: '🔥' }
+                ]
+            },
+            {
+                id: 'ch9',
+                title: 'Kapitel 9: Gut wirtschaften',
+                colorClass: 'text-amber-500 dark:text-amber-400',
+                navIcon: '<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>',
+                words: [
+                    { de: 'nachhaltig', en: 'sustainable', isVerb: false, icon: '🌱' },
+                    { de: 'maßgeblich', en: 'significantly / crucially', isVerb: false, icon: '🔑' },
+                    { de: 'die Einnahmen (Pl.)', en: 'revenues / income', isVerb: false, icon: '💵' },
+                    { de: 'die Branche', en: 'industry / sector', isVerb: false, icon: '🏭' },
+                    { de: 'wettbewerbsfähig', en: 'competitive', isVerb: false, icon: '🏎️' },
+                    { de: 'die Ressource', en: 'resource', isVerb: false, icon: '🛢️' },
+                    { de: 'langfristig', en: 'long-term', isVerb: false, icon: '🔭' },
+                    { de: 'rentabel', en: 'profitable', isVerb: false, icon: '💰' },
+                    { de: 'der Lebensunterhalt', en: 'livelihood', isVerb: false, icon: '🍞' },
+                    { de: 'der Einheimische', en: 'local / native', isVerb: false, icon: '🏡' },
+                    { de: 'beziehen', en: 'to obtain / source', isVerb: true, icon: '📦' },
+                    { de: 'die Lebensgrundlage', en: 'basis of life', isVerb: false, icon: '🌱' },
+                    { de: 'der Großteil', en: 'majority / bulk', isVerb: false, icon: '🥧' },
+                    { de: 'komfortabel', en: 'comfortable', isVerb: false, icon: '🛋️' },
+                    { de: 'decken', en: 'to cover (e.g., a need)', isVerb: true, icon: '🛡️' },
+                    { de: 'zurückerstatten', en: 'to refund', isVerb: true, icon: '🔙' },
+                    { de: 'die Unterkunft', en: 'accommodation', isVerb: false, icon: '🏨' },
+                    { de: 'der Durchgangsverkehr', en: 'through traffic', isVerb: false, icon: '🚗' },
+                    { de: 'der Aufenthalt', en: 'stay', isVerb: false, icon: '⏳' },
+                    { de: 'die Unterbringung', en: 'housing', isVerb: false, icon: '🏘️' },
+                    { de: 'heimisch', en: 'native / domestic', isVerb: false, icon: '🌲' },
+                    { de: 'ausstatten', en: 'to equip / furnish', isVerb: true, icon: '🪑' },
+                    { de: 'nachrücken', en: 'to move up', isVerb: true, icon: '🚶' },
+                    { de: 'eindämmen', en: 'to contain / curb', isVerb: true, icon: '🧱' },
+                    { de: 'leiden', en: 'to suffer', isVerb: true, icon: '🤕' },
+                    { de: 'der Mangel', en: 'lack / shortage', isVerb: false, icon: '📉' },
+                    { de: 'befürchten', en: 'to fear', isVerb: true, icon: '😨' },
+                    { de: 'gegensteuern', en: 'to take countermeasures', isVerb: true, icon: '⚓' },
+                    { de: 'verschärfen', en: 'to intensify / worsen', isVerb: true, icon: '⚠️' },
+                    { de: 'die Zuspitzung', en: 'escalation', isVerb: false, icon: '📈' },
+                    { de: 'gewinnen', en: 'to win / gain', isVerb: true, icon: '🏆' },
+                    { de: 'der Wandel', en: 'change / transition', isVerb: false, icon: '🔄' },
+                    { de: 'der Quereinsteiger', en: 'career changer', isVerb: false, icon: '🔀' },
+                    { de: 'die Rente', en: 'pension', isVerb: false, icon: '🧓' },
+                    { de: 'warnen', en: 'to warn', isVerb: true, icon: '🚨' },
+                    { de: 'die Hierarchie', en: 'hierarchy', isVerb: false, icon: '🔺' },
+                    { de: 'lukrativ', en: 'lucrative', isVerb: false, icon: '💶' },
+                    { de: 'die Nachfrage', en: 'demand', isVerb: false, icon: '🙋' },
+                    { de: 'der Wirtschaftszweig', en: 'branch of industry', isVerb: false, icon: '🏭' },
+                    { de: 'verwirklichen', en: 'to realize / implement', isVerb: true, icon: '🏗️' },
+                    { de: 'der Sektor', en: 'sector', isVerb: false, icon: '🏢' },
+                    { de: 'lohnen', en: 'to be worth it', isVerb: true, icon: '🌟' },
+                    { de: 'das Merkmal', en: 'feature / characteristic', isVerb: false, icon: '🔖' },
+                    { de: 'aufkaufen', en: 'to buy up', isVerb: true, icon: '🛒' },
+                    { de: 'schätzen', en: 'to value / estimate', isVerb: true, icon: '📏' }
+                ]
+            },
+            {
+                id: 'ch10',
+                title: 'Kapitel 10: Kunstvoll',
+                colorClass: 'text-purple-600 dark:text-purple-400',
+                navIcon: '<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>',
+                words: [
+                    { de: 'übrigens', en: 'by the way', isVerb: false, icon: '💬' },
+                    { de: 'der Schwerpunkt', en: 'main focus', isVerb: false, icon: '🎯' },
+                    { de: 'zunächst', en: 'initially / first of all', isVerb: false, icon: '🥇' },
+                    { de: 'der Entschluss', en: 'decision / resolution', isVerb: false, icon: '⚖️' },
+                    { de: 'erhalten', en: 'to receive', isVerb: true, icon: '📥' },
+                    { de: 'die Skulptur', en: 'sculpture', isVerb: false, icon: '🗿' },
+                    { de: 'der Bildhauer', en: 'sculptor', isVerb: false, icon: '🔨' },
+                    { de: 'anregen', en: 'to stimulate / encourage', isVerb: true, icon: '💡' },
+                    { de: 'der Betrachter', en: 'viewer / observer', isVerb: false, icon: '👀' },
+                    { de: 'begleiten', en: 'to accompany', isVerb: true, icon: '🚶‍♂️' },
+                    { de: 'herausbringen', en: 'to publish', isVerb: true, icon: '📢' },
+                    { de: 'der Verlag', en: 'publishing house', isVerb: false, icon: '📚' },
+                    { de: 'die Karikatur', en: 'caricature / cartoon', isVerb: false, icon: '🖼️' },
+                    { de: 'erscheinen', en: 'to appear', isVerb: true, icon: '🌟' },
+                    { de: 'abgelegen', en: 'remote', isVerb: false, icon: '🏜️' },
+                    { de: 'stolpern', en: 'to stumble', isVerb: true, icon: '🥾' },
+                    { de: 'aufziehen', en: 'to approach (storm)', isVerb: true, icon: '⛈️' },
+                    { de: 'erfinden', en: 'to invent', isVerb: true, icon: '🧠' },
+                    { de: 'erschaffen', en: 'to create', isVerb: true, icon: '🎨' },
+                    { de: 'beeindruckend', en: 'impressive', isVerb: false, icon: '🤩' },
+                    { de: 'heraussuchen', en: 'to pick out', isVerb: true, icon: '🔍' },
+                    { de: 'zurückgehen', en: 'to go back', isVerb: true, icon: '🔙' },
+                    { de: 'aufgeben', en: 'to give up', isVerb: true, icon: '🏳️' },
+                    { de: 'grübeln', en: 'to ponder', isVerb: true, icon: '🤔' },
+                    { de: 'der Einfall', en: 'idea / sudden thought', isVerb: false, icon: '💡' },
+                    { de: 'das Original', en: 'original', isVerb: false, icon: '📜' },
+                    { de: 'der Erfolgsfaktor', en: 'success factor', isVerb: false, icon: '📈' },
+                    { de: 'der Marathon', en: 'marathon', isVerb: false, icon: '🏃' },
+                    { de: 'süchtig', en: 'addicted', isVerb: false, icon: '😵‍💫' },
+                    { de: 'die Geschmackssache', en: 'matter of taste', isVerb: false, icon: '👅' },
+                    { de: 'der Zeitgeist', en: 'spirit of the times', isVerb: false, icon: '🕰️' },
+                    { de: 'der Charakter', en: 'character', isVerb: false, icon: '🎭' },
+                    { de: 'konzipieren', en: 'to conceive', isVerb: true, icon: '📐' },
+                    { de: 'hineinversetzen', en: 'to put oneself in shoes of', isVerb: true, icon: '🥿' },
+                    { de: 'glaubhaft', en: 'credible / believable', isVerb: false, icon: '✔️' },
+                    { de: 'unterfordern', en: 'to under-challenge', isVerb: true, icon: '🥱' },
+                    { de: 'schlüssig', en: 'conclusive / logical', isVerb: false, icon: '🧩' },
+                    { de: 'vorhersehbar', en: 'predictable', isVerb: false, icon: '🔮' },
+                    { de: 'gebannt', en: 'spellbound / captivated', isVerb: false, icon: '😲' },
+                    { de: 'das Budget', en: 'budget', isVerb: false, icon: '💸' },
+                    { de: 'das Potenzial', en: 'potential', isVerb: false, icon: '🔋' },
+                    { de: 'die Originalität', en: 'originality', isVerb: false, icon: '🌟' },
+                    { de: 'verraten', en: 'to reveal / betray', isVerb: true, icon: '🤫' },
+                    { de: 'spoilern', en: 'to spoil (a plot)', isVerb: true, icon: '🤐' },
+                    { de: 'riskant', en: 'risky', isVerb: false, icon: '⚠️' }
+                ]
+            },
+            {
+                id: 'ch11',
+                title: 'Kapitel 11: Viel zu tun',
+                colorClass: 'text-rose-600 dark:text-rose-400',
+                navIcon: '<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>',
+                words: [
+                    { de: 'ablehnend', en: 'rejecting', isVerb: false, icon: '🙅' },
+                    { de: 'kompetent', en: 'competent', isVerb: false, icon: '💼' },
+                    { de: 'gleichgültig', en: 'indifferent', isVerb: false, icon: '🤷' },
+                    { de: 'angespannt', en: 'tense', isVerb: false, icon: '😬' },
+                    { de: 'skeptisch', en: 'skeptical', isVerb: false, icon: '🤨' },
+                    { de: 'imitieren', en: 'to imitate', isVerb: true, icon: '👯' },
+                    { de: 'die Geste', en: 'gesture', isVerb: false, icon: '🖐️' },
+                    { de: 'der Abstand', en: 'distance', isVerb: false, icon: '📏' },
+                    { de: 'unbewusst', en: 'unconscious', isVerb: false, icon: '🧠' },
+                    { de: 'die Körperhaltung', en: 'posture', isVerb: false, icon: '🧍' },
+                    { de: 'der Gesichtsausdruck', en: 'facial expression', isVerb: false, icon: '😶' },
+                    { de: 'die Bindung', en: 'bond / attachment', isVerb: false, icon: '🔗' },
+                    { de: 'runzeln', en: 'to wrinkle', isVerb: true, icon: '😖' },
+                    { de: 'vorbeugen', en: 'to lean forward', isVerb: true, icon: '🙇' },
+                    { de: 'anstarren', en: 'to stare at', isVerb: true, icon: '👁️' },
+                    { de: 'gestikulieren', en: 'to gesticulate', isVerb: true, icon: '👐' },
+                    { de: 'die Mimik', en: 'facial expressions', isVerb: false, icon: '🎭' },
+                    { de: 'das Protokoll', en: 'protocol / minutes', isVerb: false, icon: '📝' },
+                    { de: 'anwesend', en: 'present', isVerb: false, icon: '🙋‍♂️' },
+                    { de: 'die Tagesordnung', en: 'agenda', isVerb: false, icon: '📋' },
+                    { de: 'der Tagesordnungspunkt', en: 'agenda item', isVerb: false, icon: '📌' },
+                    { de: 'die Genehmigung', en: 'approval', isVerb: false, icon: '✅' },
+                    { de: 'genehmigen', en: 'to approve', isVerb: true, icon: '🆗' },
+                    { de: 'die Messe', en: 'trade fair', isVerb: false, icon: '🎪' },
+                    { de: 'der Stand', en: 'booth', isVerb: false, icon: '🏪' },
+                    { de: 'die Standbetreuung', en: 'booth duty', isVerb: false, icon: '🧑‍💼' },
+                    { de: 'auslaufen', en: 'to expire', isVerb: true, icon: '⏳' },
+                    { de: 'die Ausschreibung', en: 'tender', isVerb: false, icon: '📢' },
+                    { de: 'die Aufforderung', en: 'request', isVerb: false, icon: '❗' },
+                    { de: 'inklusive', en: 'inclusive', isVerb: false, icon: '➕' },
+                    { de: 'der Zeitumfang', en: 'time frame', isVerb: false, icon: '⏱️' },
+                    { de: 'der Dienstleister', en: 'service provider', isVerb: false, icon: '🛠️' },
+                    { de: 'sachlich', en: 'objective / factual', isVerb: false, icon: '📊' },
+                    { de: 'die Initiale', en: 'initial', isVerb: false, icon: '🔠' },
+                    { de: 'der Streit', en: 'argument', isVerb: false, icon: '⚡' },
+                    { de: 'empfinden', en: 'to feel / sense', isVerb: true, icon: '❤️' },
+                    { de: 'dicht', en: 'dense / tight', isVerb: false, icon: '🧱' },
+                    { de: 'der Anspruch', en: 'demand', isVerb: false, icon: '🎯' },
+                    { de: 'nahestehend', en: 'close (relationship)', isVerb: false, icon: '🫂' },
+                    { de: 'die Erreichbarkeit', en: 'availability', isVerb: false, icon: '📱' },
+                    { de: 'der Termindruck', en: 'deadline pressure', isVerb: false, icon: '⏰' },
+                    { de: 'die Belastung', en: 'burden', isVerb: false, icon: '🏋️' },
+                    { de: 'ergeben', en: 'to result in', isVerb: true, icon: '📈' },
+                    { de: 'ablenken', en: 'to distract', isVerb: true, icon: '🎈' },
+                    { de: 'die Mediation', en: 'mediation', isVerb: false, icon: '⚖️' }
+                ]
+            },
+            {
+                id: 'ch12',
+                title: 'Kapitel 12: Aufgepasst!',
+                colorClass: 'text-emerald-600 dark:text-emerald-400',
+                navIcon: '<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>',
+                words: [
+                    { de: 'legal', en: 'legal', isVerb: false, icon: '⚖️' },
+                    { de: 'strafbar', en: 'punishable', isVerb: false, icon: '🚔' },
+                    { de: 'die Pflicht', en: 'duty / obligation', isVerb: false, icon: '📋' },
+                    { de: 'das Recht', en: 'right / law', isVerb: false, icon: '🏛️' },
+                    { de: 'verpflichtet', en: 'obligated', isVerb: false, icon: '⛓️' },
+                    { de: 'versichert', en: 'insured', isVerb: false, icon: '🛡️' },
+                    { de: 'das Umfeld', en: 'environment', isVerb: false, icon: '🏞️' },
+                    { de: 'gewaltfrei', en: 'non-violent', isVerb: false, icon: '🕊️' },
+                    { de: 'die Prävention', en: 'prevention', isVerb: false, icon: '🛑' },
+                    { de: 'die Haftanstalt', en: 'prison', isVerb: false, icon: '🏢' },
+                    { de: 'der Inhaftierte', en: 'inmate', isVerb: false, icon: '⛓️' },
+                    { de: 'straffällig', en: 'delinquent', isVerb: false, icon: '🚨' },
+                    { de: 'das Unbehagen', en: 'discomfort', isVerb: false, icon: '😟' },
+                    { de: 'eingreifen', en: 'to intervene', isVerb: true, icon: '✋' },
+                    { de: 'bereuen', en: 'to regret', isVerb: true, icon: '😔' },
+                    { de: 'ausbrechen', en: 'to break out', isVerb: true, icon: '🏃‍♂️' },
+                    { de: 'sensibilisieren', en: 'to sensitize', isVerb: true, icon: '🧠' },
+                    { de: 'konfrontieren', en: 'to confront', isVerb: true, icon: '🥊' },
+                    { de: 'die Akzeptanz', en: 'acceptance', isVerb: false, icon: '👍' },
+                    { de: 'reflektieren', en: 'to reflect', isVerb: true, icon: '🤔' },
+                    { de: 'die Wirkung', en: 'effect', isVerb: false, icon: '💥' },
+                    { de: 'der Effekt', en: 'effect', isVerb: false, icon: '🪄' },
+                    { de: 'unsichtbar', en: 'invisible', isVerb: false, icon: '👻' },
+                    { de: 'verschwinden', en: 'to disappear', isVerb: true, icon: '💨' },
+                    { de: 'mittendrin', en: 'right in the middle', isVerb: false, icon: '🎯' },
+                    { de: 'auffallen', en: 'to stand out', isVerb: true, icon: '🌟' },
+                    { de: 'fixieren', en: 'to stare at', isVerb: true, icon: '👀' },
+                    { de: 'reinlegen', en: 'to trick', isVerb: true, icon: '🃏' },
+                    { de: 'erstatten', en: 'to refund', isVerb: true, icon: '🔙' },
+                    { de: 'ahnen', en: 'to suspect', isVerb: true, icon: '🕵️' },
+                    { de: 'glaubwürdig', en: 'credible', isVerb: false, icon: '✅' },
+                    { de: 'hinbekommen', en: 'to manage', isVerb: true, icon: '🛠️' },
+                    { de: 'kurzweilig', en: 'entertaining', isVerb: false, icon: '🍿' },
+                    { de: 'der Betrug', en: 'fraud', isVerb: false, icon: '🤥' },
+                    { de: 'das Opfer', en: 'victim', isVerb: false, icon: '🤕' },
+                    { de: 'der Täter', en: 'perpetrator', isVerb: false, icon: '🦹' },
+                    { de: 'die Bedrohung', en: 'threat', isVerb: false, icon: '⚠️' },
+                    { de: 'die Drohung', en: 'threat', isVerb: false, icon: '💬' },
+                    { de: 'erpressen', en: 'to blackmail', isVerb: true, icon: '💰' },
+                    { de: 'das Lösegeld', en: 'ransom', isVerb: false, icon: '💶' },
+                    { de: 'ausstehend', en: 'pending', isVerb: false, icon: '⏳' },
+                    { de: 'der Link', en: 'link', isVerb: false, icon: '🔗' },
+                    { de: 'kontaktieren', en: 'to contact', isVerb: true, icon: '📞' },
+                    { de: 'anfügen', en: 'to attach', isVerb: true, icon: '📎' },
+                    { de: 'verfallen', en: 'to expire', isVerb: true, icon: '🥀' }
+                ]
+            }
+        ];
+
+        // --- VERB DICTIONARY --- //
+        // A helper function to neatly generate complete conjugation objects
+        function makeVerb(en, p_ich, p_du, p_er, p_wir, p_ihr, p_sie, praet, perf) {
+            return { en, praeteritum: praet, perfekt: perf, praesens: [p_ich, p_du, p_er, p_wir, p_ihr, p_sie] };
+        }
+        function regVerb(en, stem, praet, perf) {
+            return makeVerb(en, stem+'e', stem+'st', stem+'t', stem+'en', stem+'t', stem+'en', praet, perf);
+        }
+
+        const verbDictionary = {
+            // Kapitel 7
+            'behalten': makeVerb('to keep / retain', 'behalte', 'behältst', 'behält', 'behalten', 'behaltet', 'behalten', 'behielt', 'hat behalten'),
+            'überfordern': regVerb('to overwhelm', 'überforder', 'überforderte', 'hat überfordert'),
+            'feststellen': makeVerb('to establish / determine', 'stelle fest', 'stellst fest', 'stellt fest', 'stellen fest', 'stellt fest', 'stellen fest', 'stellte fest', 'hat festgestellt'),
+            'hinweisen': makeVerb('to point out / indicate', 'weise hin', 'weist hin', 'weist hin', 'weisen hin', 'weist hin', 'weisen hin', 'wies hin', 'hat hingewiesen'),
+            'nachweisen': makeVerb('to prove / verify', 'weise nach', 'weist nach', 'weist nach', 'weisen nach', 'weist nach', 'weisen nach', 'wies nach', 'hat nachgewiesen'),
+            'absolvieren': regVerb('to complete / graduate', 'absolvier', 'absolvierte', 'hat absolviert'),
+            'anerkennen': makeVerb('to recognize', 'erkenne an', 'erkennst an', 'erkennt an', 'erkennen an', 'erkennt an', 'erkennen an', 'erkannte an', 'hat anerkannt'),
+            'prägen': regVerb('to shape / coin', 'präg', 'prägte', 'hat geprägt'),
+            'erschweren': regVerb('to make more difficult', 'erschwer', 'erschwerte', 'hat erschwert'),
+            'erleichtern': regVerb('to facilitate', 'erleichter', 'erleichterte', 'hat erleichtert'),
+            'gestalten': regVerb('to design / shape', 'gestalt', 'gestaltete', 'hat gestaltet'),
+            'entsprechen': makeVerb('to correspond to', 'entspreche', 'entsprichst', 'entspricht', 'entsprechen', 'entsprecht', 'entsprechen', 'entsprach', 'hat entsprochen'),
+            'erzielen': regVerb('to achieve', 'erziel', 'erzielte', 'hat erzielt'),
+            'ablaufen': makeVerb('to proceed / run', 'laufe ab', 'läufst ab', 'läuft ab', 'laufen ab', 'lauft ab', 'laufen ab', 'lief ab', 'ist abgelaufen'),
+            'anwenden': makeVerb('to apply / use', 'wende an', 'wendest an', 'wendet an', 'wenden an', 'wendet an', 'wenden an', 'wandte an', 'hat angewandt'),
+
+            // Kapitel 8
+            'erfassen': makeVerb('to capture / record', 'erfasse', 'erfasst', 'erfasst', 'erfassen', 'erfasst', 'erfassen', 'erfasste', 'hat erfasst'),
+            'verfolgen': regVerb('to pursue', 'verfolg', 'verfolgte', 'hat verfolgt'),
+            'beitragen': makeVerb('to contribute', 'trage bei', 'trägst bei', 'trägt bei', 'tragen bei', 'tragt bei', 'tragen bei', 'trug bei', 'hat beigetragen'),
+            'bieten': makeVerb('to offer', 'biete', 'bietest', 'bietet', 'bieten', 'bietet', 'bieten', 'bot', 'hat geboten'),
+            'profitieren': regVerb('to benefit / profit', 'profitier', 'profitierte', 'hat profitiert'),
+            'unterstützen': makeVerb('to support', 'unterstütze', 'unterstützt', 'unterstützt', 'unterstützen', 'unterstützt', 'unterstützen', 'unterstützte', 'hat unterstützt'),
+            'unterbinden': makeVerb('to prevent / stop', 'unterbinde', 'unterbindest', 'unterbindet', 'unterbinden', 'unterbindet', 'unterbinden', 'unterband', 'hat unterbunden'),
+            'anstreben': makeVerb('to strive for', 'strebe an', 'strebst an', 'strebt an', 'streben an', 'strebt an', 'streben an', 'strebte an', 'hat angestrebt'),
+            'umfassen': makeVerb('to encompass / include', 'umfasse', 'umfasst', 'umfasst', 'umfassen', 'umfasst', 'umfassen', 'umfasste', 'hat umfasst'),
+            'auseinanderbrechen': makeVerb('to break apart', 'breche auseinander', 'brichst auseinander', 'bricht auseinander', 'brechen auseinander', 'brecht auseinander', 'brechen auseinander', 'brach auseinander', 'ist auseinandergebrochen'),
+            'ersetzen': makeVerb('to replace', 'ersetze', 'ersetzt', 'ersetzt', 'ersetzen', 'ersetzt', 'ersetzen', 'ersetzte', 'hat ersetzt'),
+            'herrschen': regVerb('to rule / prevail', 'herrsch', 'herrschte', 'hat geherrscht'),
+            'bestätigen': regVerb('to confirm', 'bestätig', 'bestätigte', 'hat bestätigt'),
+            'stärken': regVerb('to strengthen', 'stärk', 'stärkte', 'hat gestärkt'),
+            'abhängen': makeVerb('to depend', 'hänge ab', 'hängst ab', 'hängt ab', 'hängen ab', 'hängt ab', 'hängen ab', 'hing ab', 'hat abgehangen'),
+            'nachvollziehen': makeVerb('to comprehend', 'vollziehe nach', 'vollziehst nach', 'vollzieht nach', 'vollziehen nach', 'vollzieht nach', 'vollziehen nach', 'vollzog nach', 'hat nachvollzogen'),
+            'bereichern': regVerb('to enrich', 'reicher', 'bereicherte', 'hat bereichert'),
+            'erwarten': regVerb('to expect', 'erwart', 'erwartete', 'hat erwartet'),
+            'täuschen': regVerb('to deceive / fool', 'täusch', 'täuschte', 'hat getäuscht'),
+            'unterschätzen': regVerb('to underestimate', 'unterschätz', 'unterschätzte', 'hat unterschätzt'),
+
+            // Kapitel 9
+            'beziehen': makeVerb('to obtain / source', 'beziehe', 'beziehst', 'bezieht', 'beziehen', 'bezieht', 'beziehen', 'bezog', 'hat bezogen'),
+            'decken': regVerb('to cover', 'deck', 'deckte', 'hat gedeckt'),
+            'zurückerstatten': makeVerb('to refund', 'erstatte zurück', 'erstattest zurück', 'erstattet zurück', 'erstatten zurück', 'erstattet zurück', 'erstatten zurück', 'erstattete zurück', 'hat zurückerstattet'),
+            'ausstatten': makeVerb('to equip / furnish', 'statte aus', 'stattest aus', 'stattet aus', 'statten aus', 'stattet aus', 'statten aus', 'stattete aus', 'hat ausgestattet'),
+            'nachrücken': makeVerb('to move up', 'rücke nach', 'rückst nach', 'rückt nach', 'rücken nach', 'rückt nach', 'rücken nach', 'rückte nach', 'ist nachgerückt'),
+            'eindämmen': makeVerb('to contain / curb', 'dämme ein', 'dämmst ein', 'dämmt ein', 'dämmen ein', 'dämmt ein', 'dämmen ein', 'dämmte ein', 'hat eingedämmt'),
+            'leiden': makeVerb('to suffer', 'leide', 'leidest', 'leidet', 'leiden', 'leidet', 'leiden', 'litt', 'hat gelitten'),
+            'befürchten': regVerb('to fear', 'befürcht', 'befürchtete', 'hat befürchtet'),
+            'gegensteuern': makeVerb('to take countermeasures', 'steuere gegen', 'steuerst gegen', 'steuert gegen', 'steuern gegen', 'steuert gegen', 'steuern gegen', 'steuerte gegen', 'hat gegengesteuert'),
+            'verschärfen': regVerb('to intensify / worsen', 'verschärf', 'verschärfte', 'hat verschärft'),
+            'gewinnen': makeVerb('to win / gain', 'gewinne', 'gewinnst', 'gewinnt', 'gewinnen', 'gewinnt', 'gewinnen', 'gewann', 'hat gewonnen'),
+            'warnen': regVerb('to warn', 'warn', 'warnte', 'hat gewarnt'),
+            'verwirklichen': regVerb('to realize / implement', 'verwirklich', 'verwirklichte', 'hat verwirklicht'),
+            'lohnen': regVerb('to be worth it', 'lohn', 'lohnte', 'hat gelohnt'),
+            'aufkaufen': makeVerb('to buy up', 'kaufe auf', 'kaufst auf', 'kauft auf', 'kaufen auf', 'kauft auf', 'kaufen auf', 'kaufte auf', 'hat aufgekauft'),
+            'schätzen': makeVerb('to value / estimate', 'schätze', 'schätzt', 'schätzt', 'schätzen', 'schätzt', 'schätzen', 'schätzte', 'hat geschätzt'),
+            'ansprechen': makeVerb('to appeal to', 'spreche an', 'sprichst an', 'spricht an', 'sprechen an', 'sprecht an', 'sprechen an', 'sprach an', 'hat angesprochen'),
+            'voranbringen': makeVerb('to advance', 'bringe voran', 'bringst voran', 'bringt voran', 'bringen voran', 'bringt voran', 'bringen voran', 'brachte voran', 'hat vorangebracht'),
+            'belegen': regVerb('to prove / document', 'beleg', 'belegte', 'hat belegt'),
+
+            // Kapitel 10
+            'erhalten': makeVerb('to receive', 'erhalte', 'erhältst', 'erhält', 'erhalten', 'erhaltet', 'erhalten', 'erhielt', 'hat erhalten'),
+            'anregen': makeVerb('to stimulate', 'rege an', 'regst an', 'regt an', 'regen an', 'regt an', 'regen an', 'regte an', 'hat angeregt'),
+            'begleiten': regVerb('to accompany', 'begleit', 'begleitete', 'hat begleitet'),
+            'herausbringen': makeVerb('to publish', 'bringe heraus', 'bringst heraus', 'bringt heraus', 'bringen heraus', 'bringt heraus', 'bringen heraus', 'brachte heraus', 'hat herausgebracht'),
+            'erscheinen': makeVerb('to appear', 'erscheine', 'erscheinst', 'erscheint', 'erscheinen', 'erscheint', 'erscheinen', 'erschien', 'ist erschienen'),
+            'stolpern': regVerb('to stumble', 'stolper', 'stolperte', 'ist gestolpert'),
+            'aufziehen': makeVerb('to approach (storm)', 'ziehe auf', 'ziehst auf', 'zieht auf', 'ziehen auf', 'zieht auf', 'ziehen auf', 'zog auf', 'ist aufgezogen'),
+            'erfinden': makeVerb('to invent', 'erfinde', 'erfindest', 'erfindet', 'erfinden', 'erfindet', 'erfinden', 'erfand', 'hat erfunden'),
+            'erschaffen': makeVerb('to create', 'erschaffe', 'erschaffst', 'erschafft', 'erschaffen', 'erschafft', 'erschaffen', 'erschuf', 'hat erschaffen'),
+            'heraussuchen': makeVerb('to pick out', 'suche heraus', 'suchst heraus', 'sucht heraus', 'suchen heraus', 'sucht heraus', 'suchen heraus', 'suchte heraus', 'hat herausgesucht'),
+            'zurückgehen': makeVerb('to go back', 'gehe zurück', 'gehst zurück', 'geht zurück', 'gehen zurück', 'geht zurück', 'gehen zurück', 'ging zurück', 'ist zurückgegangen'),
+            'aufgeben': makeVerb('to give up', 'gebe auf', 'gibst auf', 'gibt auf', 'geben auf', 'gebt auf', 'geben auf', 'gab auf', 'hat aufgegeben'),
+            'grübeln': regVerb('to ponder', 'grübel', 'grübelte', 'hat gegrübelt'),
+            'konzipieren': regVerb('to conceive', 'konzipier', 'konzipierte', 'hat konzipiert'),
+            'hineinversetzen': makeVerb('to put oneself in shoes of', 'versetze hinein', 'versetzt hinein', 'versetzt hinein', 'versetzen hinein', 'versetzt hinein', 'versetzen hinein', 'versetzte hinein', 'hat hineinversetzt'),
+            'unterfordern': regVerb('to under-challenge', 'unterforder', 'unterforderte', 'hat unterfordert'),
+            'verraten': makeVerb('to reveal', 'verrate', 'verrätst', 'verrät', 'verraten', 'verratet', 'verraten', 'verriet', 'hat verraten'),
+            'spoilern': regVerb('to spoil', 'spoiler', 'spoilerte', 'hat gespoilert'),
+
+            // Kapitel 11
+            'imitieren': regVerb('to imitate', 'imitier', 'imitierte', 'hat imitiert'),
+            'runzeln': regVerb('to wrinkle', 'runzel', 'runzelte', 'hat gerunzelt'),
+            'vorbeugen': makeVerb('to lean forward', 'beuge vor', 'beugst vor', 'beugt vor', 'beugen vor', 'beugt vor', 'beugen vor', 'beugte vor', 'hat vorgebeugt'),
+            'anstarren': makeVerb('to stare at', 'starre an', 'starrst an', 'starrt an', 'starren an', 'starrt an', 'starren an', 'starrte an', 'hat angestarrt'),
+            'gestikulieren': regVerb('to gesticulate', 'gestikulier', 'gestikulierte', 'hat gestikuliert'),
+            'genehmigen': regVerb('to approve', 'genehmig', 'genehmigte', 'hat genehmigt'),
+            'auslaufen': makeVerb('to expire', 'laufe aus', 'läufst aus', 'läuft aus', 'laufen aus', 'lauft aus', 'laufen aus', 'lief aus', 'ist ausgelaufen'),
+            'empfinden': makeVerb('to feel / sense', 'empfinde', 'empfindest', 'empfindet', 'empfinden', 'empfindet', 'empfinden', 'empfand', 'hat empfunden'),
+            'ergeben': makeVerb('to result in', 'ergebe', 'ergibst', 'ergibt', 'ergeben', 'ergebt', 'ergeben', 'ergab', 'hat ergeben'),
+            'ablenken': makeVerb('to distract', 'lenke ab', 'lenkst ab', 'lenkt ab', 'lenken ab', 'lenkt ab', 'lenken ab', 'lenkte ab', 'hat abgelenkt')
+        };
+
+        // Complete Dict for Kapitel 12
+        Object.assign(verbDictionary, {
+            'eingreifen': makeVerb('to intervene', 'greife ein', 'greifst ein', 'greift ein', 'greifen ein', 'greift ein', 'greifen ein', 'griff ein', 'hat eingegriffen'),
+            'bereuen': regVerb('to regret', 'bereu', 'bereute', 'hat bereut'),
+            'ausbrechen': makeVerb('to break out', 'breche aus', 'brichst aus', 'bricht aus', 'brechen aus', 'brecht aus', 'brechen aus', 'brach aus', 'ist ausgebrochen'),
+            'sensibilisieren': regVerb('to sensitize', 'sensibilisier', 'sensibilisierte', 'hat sensibilisiert'),
+            'konfrontieren': regVerb('to confront', 'konfrontier', 'konfrontierte', 'hat konfrontiert'),
+            'reflektieren': regVerb('to reflect', 'reflektier', 'reflektierte', 'hat reflektiert'),
+            'verschwinden': makeVerb('to disappear', 'verschwinde', 'verschwindest', 'verschwindet', 'verschwinden', 'verschwindet', 'verschwinden', 'verschwand', 'ist verschwunden'),
+            'auffallen': makeVerb('to stand out', 'falle auf', 'fällst auf', 'fällt auf', 'fallen auf', 'fallt auf', 'fallen auf', 'fiel auf', 'ist aufgefallen'),
+            'fixieren': regVerb('to stare at', 'fixier', 'fixierte', 'hat fixiert'),
+            'reinlegen': makeVerb('to trick', 'lege rein', 'legst rein', 'legt rein', 'legen rein', 'legt rein', 'legen rein', 'legte rein', 'hat reingelegt'),
+            'erstatten': regVerb('to refund / report', 'erstatt', 'erstattete', 'hat erstattet'),
+            'ahnen': regVerb('to suspect', 'ahn', 'ahnte', 'hat geahnt'),
+            'hinbekommen': makeVerb('to manage', 'bekomme hin', 'bekommst hin', 'bekommt hin', 'bekommen hin', 'bekommt hin', 'bekommen hin', 'bekam hin', 'hat hinbekommen'),
+            'erpressen': makeVerb('to blackmail', 'erpresse', 'erpresst', 'erpresst', 'erpressen', 'erpresst', 'erpressen', 'erpresste', 'hat erpresst'),
+            'kontaktieren': regVerb('to contact', 'kontaktier', 'kontaktierte', 'hat kontaktiert'),
+            'anfügen': makeVerb('to attach / add', 'füge an', 'fügst an', 'fügt an', 'fügen an', 'fügt an', 'fügen an', 'fügte an', 'hat angefügt'),
+            'verfallen': makeVerb('to expire / decay', 'verfalle', 'verfällst', 'verfällt', 'verfallen', 'verfallt', 'verfallen', 'verfiel', 'ist verfallen')
+        });
+
+        // --- CORE APPLICATION LOGIC --- //
+
+        let currentChapterId = 'ch7';
+        const tableBody = document.getElementById('vocab-table-body');
+        const chapterTitle = document.getElementById('chapter-title');
+        const nav = document.getElementById('sidebar-nav');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        function initNav() {
+            if(!nav || !mobileNav) return;
+            
+            nav.innerHTML = '';
+            mobileNav.innerHTML = '';
+            
+            vocabData.forEach(chapter => {
+                // Desktop Nav Item
+                const btn = document.createElement('button');
+                btn.id = `nav-btn-${chapter.id}`;
+                
+                btn.innerHTML = `
+                    <div class="nav-icon-container mr-3 p-1.5 rounded-lg transition-colors duration-200">
+                        ${chapter.navIcon}
+                    </div>
+                    <span class="truncate">${chapter.title}</span>
+                `;
+                
+                btn.onclick = () => {
+                    if(currentChapterId === chapter.id) return;
+                    currentChapterId = chapter.id;
+                    updateNavState();
+                    renderTable();
+                };
+                nav.appendChild(btn);
+
+                // Mobile Nav Item
+                const option = document.createElement('option');
+                option.value = chapter.id;
+                option.textContent = chapter.title;
+                mobileNav.appendChild(option);
+            });
+            updateNavState();
+        }
+
+        function updateNavState() {
+            vocabData.forEach(chapter => {
+                const btn = document.getElementById(`nav-btn-${chapter.id}`);
+                if (!btn) return;
+
+                const iconContainer = btn.querySelector('.nav-icon-container');
+                const isActive = chapter.id === currentChapterId;
+                
+                if (isActive) {
+                    btn.className = `nav-btn w-full flex items-center px-4 py-3 rounded-xl transition-all duration-200 group text-left bg-sky-50 dark:bg-sky-500/10 text-sky-700 dark:text-sky-400 font-semibold shadow-[0_1px_2px_rgba(14,165,233,0.05)]`;
+                    iconContainer.className = `nav-icon-container mr-3 p-1.5 rounded-lg transition-colors duration-200 bg-sky-100 dark:bg-sky-500/20 text-sky-600 dark:text-sky-400`;
+                } else {
+                    btn.className = `nav-btn w-full flex items-center px-4 py-3 rounded-xl transition-all duration-200 group text-left text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-slate-900 dark:hover:text-slate-200 font-medium active:scale-[0.98]`;
+                    iconContainer.className = `nav-icon-container mr-3 p-1.5 rounded-lg transition-colors duration-200 bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 group-hover:bg-white dark:group-hover:bg-slate-700 group-hover:text-slate-500 dark:group-hover:text-slate-300 shadow-sm`;
+                }
+            });
+            
+            if (mobileNav) mobileNav.value = currentChapterId;
+        }
+
+        mobileNav?.addEventListener('change', (e) => {
+            currentChapterId = e.target.value;
+            updateNavState();
+            renderTable();
+        });
+
+        function renderTable() {
+            if (!tableBody || !chapterTitle) return;
+
+            const chapter = vocabData.find(c => c.id === currentChapterId);
+            
+            // Retrigger Title Animation
+            chapterTitle.classList.remove('animate-fade-in');
+            void chapterTitle.offsetWidth; // Trigger DOM reflow to restart animation
+            chapterTitle.textContent = chapter.title;
+            chapterTitle.className = `text-2xl sm:text-3xl font-extrabold tracking-tight animate-fade-in transition-colors duration-300 ${chapter.colorClass}`;
+            
+            // Build string for faster rendering (Optimization)
+            const rowsHtml = chapter.words.map((wordObj, index) => {
+                let wordTypeClass = "";
+                let clickableAttr = "";
+                let trHoverClass = "hover:bg-slate-50 dark:hover:bg-slate-700/30";
+                
+                if (wordObj.de.startsWith('der ') || wordObj.de.startsWith('die ') || wordObj.de.startsWith('das ')) {
+                    wordTypeClass = "text-sky-600 dark:text-sky-400";
+                } else if (wordObj.isVerb) {
+                    wordTypeClass = "text-teal-600 dark:text-teal-400 cursor-pointer border-b border-dashed border-teal-300 dark:border-teal-600 hover:border-teal-500 dark:hover:border-teal-400 pb-0.5 transition-colors";
+                    clickableAttr = `onclick="openModal('${wordObj.de}')" title="Click for conjugation"`;
+                    trHoverClass = "hover:bg-teal-50/50 dark:hover:bg-teal-900/20";
+                } else {
+                    wordTypeClass = "text-amber-600 dark:text-amber-400";
+                }
+
+                // Staggered animation delay
+                const delay = Math.min(index * 25, 500); 
+
+                return `
+                    <tr class="border-b border-slate-100 dark:border-slate-700/50 last:border-b-0 transition-colors duration-200 ${trHoverClass} animate-fade-in-up" style="animation-fill-mode: both; animation-delay: ${delay}ms;">
+                        <td class="py-3 sm:py-3.5 px-4 sm:px-6 w-2/5 sm:w-1/3 align-top">
+                            <div class="flex items-center mt-0.5">
+                                <span class="text-[14px] sm:text-[15px] font-semibold tracking-wide ${wordTypeClass}" ${clickableAttr}>${wordObj.de}</span>
+                            </div>
+                        </td>
+                        <td class="py-3 sm:py-3.5 px-4 sm:px-6 text-[14px] sm:text-[15px] text-slate-600 dark:text-slate-300 font-medium align-top">
+                            <div class="flex items-start sm:items-center justify-between sm:justify-start">
+                                <span class="leading-snug">${wordObj.en}</span>
+                                <span class="ml-2 sm:ml-3 text-base sm:text-lg drop-shadow-sm flex-shrink-0 transition-transform duration-300 hover:scale-125 hover:rotate-12 cursor-default">${wordObj.icon}</span>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+            
+            tableBody.innerHTML = rowsHtml;
+        }
+
+        const modal = document.getElementById('verb-modal');
+        const modalBackdrop = document.getElementById('modal-backdrop');
+        const modalContent = document.getElementById('modal-content');
+        const modalCloseBtn = document.getElementById('modal-close');
+
+        function openModal(verbInfinitive) {
+            if (!modal) return;
+            const verbData = verbDictionary[verbInfinitive];
+            if (!verbData) return;
+
+            document.getElementById('modal-verb-text').textContent = verbInfinitive;
+            document.getElementById('modal-verb-translation').textContent = verbData.en;
+            document.getElementById('modal-praeteritum').textContent = verbData.praeteritum;
+            document.getElementById('modal-perfekt').textContent = verbData.perfekt;
+
+            // Optimize Conjugation table rendering
+            const pronouns = ['ich', 'du', 'er/sie/es', 'wir', 'ihr', 'sie/Sie'];
+            const conjHtml = pronouns.map((pronoun, index) => `
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors border-b border-slate-100 dark:border-slate-700/50 last:border-0">
+                    <td class="py-2.5 px-4 sm:px-5 text-sm font-medium text-slate-500 dark:text-slate-400 w-1/3">${pronoun}</td>
+                    <td class="py-2.5 px-4 sm:px-5 text-sm font-semibold text-slate-800 dark:text-slate-200">${verbData.praesens[index]}</td>
+                </tr>
+            `).join('');
+            document.getElementById('modal-conjugation-body').innerHTML = conjHtml;
+
+            // Trigger Animation
+            modal.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95', 'translate-y-4');
+                modalContent.classList.add('scale-100', 'translate-y-0');
+            });
+        }
+
+        function closeModal() {
+            if (!modal) return;
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100', 'translate-y-0');
+            modalContent.classList.add('scale-95', 'translate-y-4');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Wait for transition
+        }
+
+        // Use Optional Chaining (?.) to safely add event listeners
+        modalCloseBtn?.addEventListener('click', closeModal);
+        modalBackdrop?.addEventListener('click', closeModal);
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        function updateThemeIcons() {
+            if(!themeToggleDarkIcon || !themeToggleLightIcon) return;
+            if (document.documentElement.classList.contains('dark')) {
+                themeToggleDarkIcon.className = "absolute w-5 h-5 transition-all duration-500 transform -translate-y-10 opacity-0 group-hover:rotate-12";
+                themeToggleLightIcon.className = "absolute w-5 h-5 transition-all duration-500 transform translate-y-0 opacity-100 group-hover:rotate-12";
+            } else {
+                themeToggleDarkIcon.className = "absolute w-5 h-5 transition-all duration-500 transform translate-y-0 opacity-100 group-hover:rotate-12";
+                themeToggleLightIcon.className = "absolute w-5 h-5 transition-all duration-500 transform translate-y-10 opacity-0 group-hover:rotate-12";
+            }
+        }
+
+        // Initial setup for the icons
+        updateThemeIcons();
+
+        themeToggleBtn?.addEventListener('click', function() {
+            document.documentElement.classList.toggle('dark');
+            
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                localStorage.setItem('color-theme', 'light');
+            }
+            updateThemeIcons();
+        });
+
+        // Initialization
+        initNav();
+        renderTable();
+    </script>
+</body>
+</html>
